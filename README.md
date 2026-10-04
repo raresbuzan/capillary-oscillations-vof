@@ -5,7 +5,7 @@ Supervisor: Prof. Christophe Oguey.
 
 **Goal:** validate a two-phase VOF–CSF simulation against exact analytical results (Laplace law, Rayleigh–Lamb theory), then test it on a numerically harder case: an air bubble in water.
 
-![Computational domain](figures/domain_volume_fraction.png)
+![Computational domain](domain_volume_fraction.png)
 
 ## Setup
 - Ansys Fluent 2025 R2 (student license), 2D axisymmetric, water/air, R = 1 mm, no gravity.
@@ -24,15 +24,15 @@ Supervisor: Prof. Christophe Oguey.
 | Viscous damping time τ₂ | 200 ms | 168 ms (symmetric case); bracketed in 120–250 ms across meshes |
 | Mass conservation | — | error < 0.001 % |
 
-![Spectrum of the n = 2 mode](figures/spectrum_mode_n2.png)
+![Spectrum of the n = 2 mode](spectrum_mode_n2.png)
 
-![Multimodal spectra from three probes](figures/multimodal_spectra_3_probes.png)
+![Multimodal spectra from three probes](multimodal_spectra_3_probes.png)
 
-![Mesh convergence of the Laplace jump](figures/mesh_convergence_laplace.png)
+![Mesh convergence of the Laplace jump](mesh_convergence_laplace.png)
 
-![Mesh independence of f2](figures/mesh_convergence_f2.png)
+![Mesh independence of f2](mesh_convergence_f2.png)
 
-![Damping measured from the Hilbert envelope](figures/damping_hilbert_envelope.png)
+![Damping measured from the Hilbert envelope](damping_hilbert_envelope.png)
 
 Post-processing in Python (NumPy / SciPy): resampling of the adaptive-time-step signals, FFT, Butterworth band-pass filtering, Hilbert envelope and exponential fit of the damping.
 
@@ -41,13 +41,13 @@ On a uniform mesh the bubble is destroyed by spurious currents within millisecon
 
 **Uniform mesh (167 µm): the bubble breaks up within milliseconds**
 
-![Bubble breakup on a uniform mesh](figures/bubble_uniform_mesh_breakup.png)
+![Bubble breakup on a uniform mesh](bubble_uniform_mesh_breakup.png)
 
 **Adaptive mesh (80 → 40 → 20 µm): the bubble stays stable**
 
-![Bubble stabilized by adaptive mesh refinement](figures/bubble_amr_stabilized.png)
+![Bubble stabilized by adaptive mesh refinement](bubble_amr_stabilized.png)
 
-![Non-monotonic envelope of the bubble signal](figures/bubble_parasitic_currents_signal.png)
+![Non-monotonic envelope of the bubble signal](bubble_parasitic_currents_signal.png)
 
 ## Known limitations
 - Frequency resolution: with a 200 ms window the FFT bin is 5 Hz, so the 125 Hz vs 122 Hz difference is at the resolution limit; a sinusoidal fit would give a sharper estimate.
@@ -55,8 +55,8 @@ On a uniform mesh the bubble is destroyed by spurious currents within millisecon
 - 2D axisymmetric, laminar, small meshes (about 11,000 cells for the droplet).
 
 ## Documents
-- Full report (French): [report/internship_report_fr.pdf](report/internship_report_fr.pdf)
-- Defense slides (French): [report/defense_slides_fr.pdf](report/defense_slides_fr.pdf)
+- Full report (French): [internship_report_fr.pdf](internship_report_fr.pdf)
+- Defense slides (French): [defense_slides_fr.pdf](defense_slides_fr.pdf)
 - Volume-fraction animations: [Google Drive](https://drive.google.com/drive/folders/1KhLZBN-xtAIAcujkYpo5hJV__akSPM4T?usp=sharing)
 
 Fluent case and data files are not included.
